@@ -1,6 +1,4 @@
-const mongoose = require("mongoose");
-const Schema = ("mongoose.Schema");
-mongoose.connect()
+db = require("./dbConfig")
 
 const MediaItem = new Schema({
     title: {type:string,required:true,},
