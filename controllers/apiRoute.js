@@ -6,7 +6,7 @@ module.exports = function(app) {
       //broad search for games with matching title returns arra
       const games = await igdb.post(
         "/games",
-        `fields id,name,slug,url,summary; limit 50; where name ~ *"${req.params.name}"*; sort id asc;`
+        `fields id,name,slug,url,summary; limit 50; where name ~ *"${req.params.name}"*; sort id desc;`
       );
       
       //create array of returned igdb id's and make into csv list to use to query igdb cover art.
@@ -31,13 +31,13 @@ module.exports = function(app) {
      //use returned game data to map new array that includes cover art. 
      //If game id doesn't have matching cover art, use placeholder art 
      const gamesList = games.data.map(x =>
-          c1[x.id]? {
+          c1[x.id] ? {
               id: x.id,
               name: x.name,
               slug: x.slug,
               summary: x.summary,
               url: x.url,
-              cover: `https:${c1[x.id].url}`
+              cover: `https:${c1[x.id].url}`.replace("t_thumb","t_cover_big")
             }
           : {
               id: x.id,
