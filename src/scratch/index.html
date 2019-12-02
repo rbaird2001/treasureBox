@@ -139,7 +139,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -179,7 +180,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -219,7 +221,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -259,7 +262,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -299,7 +303,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -339,7 +344,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -379,7 +385,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -419,7 +426,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -459,7 +467,8 @@
                                 dy=".3em">Thumbnail</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural lead-in to
+                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
+                                lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -492,7 +501,33 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button class="btn btn-primary float-right fontPressStart btn-style-red">Add Game</button>
+                    <button class="btn btn-primary float-right fontPressStart btn-style-red" data-toggle="modal"
+                        data-target="#addGameModal">Add Game</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="addGameModal" tabindex="-1" role="dialog"
+                        aria-labelledby="addGameModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addGameModalLabel">Search Games</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="searchGameInput" aria-describedby="searchGameHelp">
+                                            <small id="searchGameHelp" class="form-text text-muted">broad search for games with matching title returns a list of games</small>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary fontPressStart btn-style-red">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
