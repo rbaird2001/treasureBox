@@ -6,7 +6,7 @@ module.exports = function(app) {
       //broad search for games with matching title returns arra
       const games = await igdb.post(
         "/games",
-        `fields id,name,slug,url,summary; limit 50; where name ~ *"${req.params.name}"*; sort id desc;`
+        `fields id,name,slug,url,summary; limit 50; where name ~ *"${req.params.name}"*; sort popularity desc;`
       );
       
       //create array of returned igdb id's and make into csv list to use to query igdb cover art.
