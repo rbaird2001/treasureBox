@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+ import React, { useEffect, useState, Fragment } from "react";
 import api from "../../services/api";
 //import GameCard from "../../components/GameCard";
 import SearchRow from "../../components/SearchRow"
