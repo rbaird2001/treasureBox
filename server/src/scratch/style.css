@@ -25,3 +25,22 @@
     background-color: red;
     border-color: white;
 }
+
+.btn-style-grey {
+    color: rgb(150, 150, 150);
+    border: 2px gray solid;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.btn-style-grey:hover {
+    /* color: rgb(240, 184, 0); */
+    color: rgb(255, 255, 255);
+    background-color: rgb(100, 100, 100);
+    border-color: white;
+}
+
+.modal-header, .modal-footer{
+    color:white;
+    background-color: rgb(150, 150, 150);
+}
