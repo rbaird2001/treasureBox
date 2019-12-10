@@ -13,15 +13,13 @@ export default () => {
   useEffect(() => {
     api.get(`/games/${name}`).then(result => {
       setGames(result.data);
-      setTimeout(() => {
-        history.push('/about')
-      }, 10000)
+      // setTimeout(() => {
+      //   history.push('/about')
+      // }, 10000)
     });
   }, [name]);
 
   const searchList = () => {
-    //return games.map((game) => <GameCard img={game.cover} key={game.id} /> );
-    // let divRows = [];
     return games.reduce((final, game, i, _games) => {
       if(i%3 === 0) {
         const [item1, item2, item3] = [i, i + 1, i + 2];
@@ -38,15 +36,7 @@ export default () => {
       }
       return final;
     }, [])
-    // for(let i=0;i<games.length;i+=3){
-    //   let j = i+1;
-    //     let item1 = j
-    //     let item2 = j+1
-    //     let item3 = j+2
-    //     let rowId = `${item1}${item2}${item3}`
-    //     divRows.push(<SearchRow rowId={rowId} item1={item1} item2={item2} item3={item3} />) 
-    // }
-      }
+  }
   return <Fragment>
       {searchList()}
       </Fragment>;

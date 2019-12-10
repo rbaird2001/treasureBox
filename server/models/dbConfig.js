@@ -1,5 +1,5 @@
 require("dotenv");
-const db = "mongodb://localhost/tbox" || process.env.MONGODB_URI;
+const db = process.env.MONGODB_URI || "mongodb://localhost/treasurebox"
 const mongoose = require("mongoose");
 //const Article = require("../model/articleSchema");
 //const Note = require("./noteSchema");

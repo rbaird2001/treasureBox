@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/">
           <Redirect to="/search" />
         </Route>
-        <Route path="/search:name?">
+        <Route path="/search/:name?">
             <Search />
         </Route>
         <Route path="/about"><h1>ABOUT</h1></Route>

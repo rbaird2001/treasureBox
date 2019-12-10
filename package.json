@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "mongojs": "^3.1.0",
     "mongoose": "^5.7.14"
-  }
+  },
   "devDependencies": {},
   "keywords": []
 }
