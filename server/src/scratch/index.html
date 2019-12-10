@@ -131,17 +131,16 @@
             <div class="row pt-4">
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm" data-toggle="modal" data-target="#exampleModal1">
+
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                             role="img" aria-label="Placeholder: Thumbnail">
                             <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                dy=".3em">Thumbnail</text>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{coverArt}}</text>
                         </svg>
                         <div class="card-body">
-                            <p class="card-text fontOswald">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text fontOswald">{{title}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                 </div>
@@ -154,17 +153,22 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel1">{{title}}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <li>{{platform}}</li>
+                                    <li>{{rating}}</li>
+                                    <li>{{genre}}</li>
+                                    <div>{{description}} <br> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quasi aspernatur nihil. Error architecto nobis, delectus eos omnis dignissimos, reprehenderit exercitationem quibusdam id fuga doloremque voluptatem numquam unde eius facere.""
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="fontPressStart btn-style-grey"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="button" class="fontPressStart btn-style-red">Save changes</button>
                                 </div>
                             </div>
                         </div>
