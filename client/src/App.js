@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import Search from './routes/Search';
+import Shelf from './routes/Shelf'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,12 +14,13 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Redirect to="/search" />
+          <Redirect to="/shelf" />
         </Route>
         <Route path="/search/:name?">
             <Search />
         </Route>
         <Route path="/about"><h1>ABOUT</h1></Route>
+        <Route path="/shelf"><Shelf /></Route>
         </Switch>
     </Router>
   );
