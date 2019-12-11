@@ -1,8 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import api from "../../services/api";
-//import GameCard from "../../components/GameCard";
 import {grid} from "../../components/SearchRow/helpers"
-import {useParams, useHistory} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 export default () => {
   const {name = "Final Fantasy"} = useParams();
@@ -13,9 +12,7 @@ export default () => {
   useEffect(() => {
     api.get(`/games/${name}`).then(result => {
       setGames(result.data);
-      // setTimeout(() => {
-      //   history.push('/about')
-      // }, 10000)
+      
     });
   }, [name]);
 
