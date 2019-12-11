@@ -1,3 +1,5 @@
+//This sets up our schema for our database and creates
+//   our collection from the model.
 db = require("./dbConfig")
 const mongoose = require("mongoose");
 const {Schema, model} = mongoose;

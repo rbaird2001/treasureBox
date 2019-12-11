@@ -1,5 +1,10 @@
+//helpers processes the results and sets up rows for every three games
+//   to make an organized shelf of games.
+//This is used both in the search results and in the game shelf.
+
 import React from "react";
 import SearchRow from "./index";
+
 export const grid = (games, canAdd = false) => {
   return games.reduce((final, game, i, _games) => {
     if (i % 3 === 0) {
