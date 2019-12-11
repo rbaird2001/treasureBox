@@ -1,7 +1,7 @@
- import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import api from "../../services/api";
 //import GameCard from "../../components/GameCard";
-import SearchRow from "../../components/SearchRow"
+import {grid} from "../../components/SearchRow/helpers"
 import {useParams, useHistory} from "react-router-dom";
 
 export default () => {
@@ -9,7 +9,7 @@ export default () => {
   console.log(name)
 
   const [games, setGames] = useState([]);
-  const history = useHistory();
+  //const history = useHistory();
   useEffect(() => {
     api.get(`/games/${name}`).then(result => {
       setGames(result.data);
@@ -19,26 +19,9 @@ export default () => {
     });
   }, [name]);
 
-  const searchList = () => {
-    return games.reduce((final, game, i, _games) => {
-      if(i%3 === 0) {
-        const [item1, item2, item3] = [i, i + 1, i + 2];
-        console.log(item1,item2,item3);
-
-        final.push(
-          <SearchRow
-            rowId={`${item1}${item2}${item3}`}
-            item1={_games[item1]}
-            item2={_games[item2]}
-            item3={_games[item3]} 
-          />
-        )
-      }
-      return final;
-    }, [])
-  }
+  const searchList = grid(games, true)
   return <Fragment>
-      {searchList()}
+      {searchList}
       </Fragment>;
 //   return (
 //     <div>

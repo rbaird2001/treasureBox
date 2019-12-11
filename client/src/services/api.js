@@ -1,3 +1,9 @@
 import Axios from "axios";
-const port = process.env.port || 3000;
-export default Axios.create({baseURL: "http://localhost:" + port, crossdomain: true});
+const env = process.env.NODE_ENV;
+
+const axios =
+  env === "production"
+    ? Axios.create({ baseURL: "/api" })
+    : Axios.create({ baseURL: "http://localhost:3000/api", crossdomain: true });
+
+export default axios;

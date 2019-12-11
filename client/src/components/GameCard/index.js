@@ -4,7 +4,7 @@ import api from '../../services/api'
 
 
 
-export default ({ id, img, summary }) => {
+export default ({ id, img, summary, canAdd }) => {
     const history = useHistory();
     const addSelection = gameId => () => {
         api.post(`/games/${gameId}`).then(() => {
@@ -23,14 +23,14 @@ export default ({ id, img, summary }) => {
         <p className="card-text fontOswald">{summary}</p>
         <div className="d-flex justify-content-between align-items-center">
           <div className="btn-group">
-            <button
+            {canAdd ? (<button
               type="button"
               className="gameButton btn btn-secondary"
               id={id}
               onClick={addSelection(id)}
             >
               Add to Collection
-            </button>
+            </button>) : null}
           </div>
         </div>
       </div>
