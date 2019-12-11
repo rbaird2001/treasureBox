@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -23,17 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 require("./controllers/apiRoute")(app)
-
-// Database configuration
-var databaseUrl = "treasureBox";
-var collections = ["games"];
-
-// Hook mongojs configuration to the db variable
-var db = mongojs(databaseUrl, collections);
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
-
 
 app.listen(PORT, function() {
     console.log("App now listening at localhost:" + PORT);
