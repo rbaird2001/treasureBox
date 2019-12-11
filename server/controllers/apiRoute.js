@@ -1,9 +1,10 @@
 //const MediaItem = require("../models/mediaItem")
 const igdb = require("../services/igdb");
 const db = require("../models/mediaItem");
-const {formatGames} = require("../helpers")
+const path = require("path");
+const { formatGames } = require("../helpers");
 module.exports = function(app) {
-  app.get("/games/:name", async (req, res) => {
+  app.get("/api/games/:name", async (req, res) => {
     try {
       //broad search for games with similar titles returns array
       const games = await igdb.post(
@@ -24,15 +25,15 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/games/:gameId", async (req, res) => {
+  app.post("/api/games/:gameId", async (req, res) => {
     //console.log("testing!!");
     try {
       let selectGame = await igdb.post(
-          "/games",
-          `fields id,name,summary,rating,popularity,url; where id = ${req.params.gameId};`
-        );
+        "/games",
+        `fields id,name,summary,rating,popularity,url; where id = ${req.params.gameId};`
+      );
 
-        selectGame = await formatGames(selectGame);
+      selectGame = await formatGames(selectGame);
 
       // console.log({selectGame: selectGame.data, gameCover: gameCover.data});
 
@@ -44,7 +45,7 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/shelf", async (req, res) => {
+  app.get("/api/shelf", async (req, res) => {
     const games = await db.find();
     console.log(games);
     res.json(games);
@@ -58,4 +59,11 @@ module.exports = function(app) {
 
   //       }
   //   })
+  app.get("/*", function(req, res) {
+    res.sendFile(
+      path.join(__dirname, "..", "..", "client", "build", "index.html")
+    );
+  });
 };
+
+
