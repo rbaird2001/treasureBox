@@ -51,30 +51,36 @@ module.exports = function(app) {
     res.json(games);
   });
 
-  //default routing to send back to React for processing.
-  app.get("/*", function(req, res) {
-    res.sendFile(
-      path.join(__dirname, "..", "..", "client", "build", "index.html")
-    );
-  });
-  
-/* GET Google Authentication API. */
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
+  /* GET Google Authentication API. */
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['https://www.googleapis.com/auth/userinfo.profile']
+}));
 
 //google post authentication callback
 app.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/", session: false }),
+  passport.authenticate("google", { failureRedirect: "/auth/google", session: false }),
   function(req, res) {
       var token = req.user.token;
       res.redirect("http://localhost:3000?token=" + token);
   }
 );
 
-};
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "..", "client", "build", "login.html"))
+})
 
 
+  //default routing to send back to React for processing.
+  app.get("/*", function(req, res) {
+    if(!req.user) {
+      res.redirect('/login')
+    } else {
+      res.sendFile(
+        path.join(__dirname, "..", "..", "client", "build", "app.html")
+      );
+    }
+  });
+
+}
 
