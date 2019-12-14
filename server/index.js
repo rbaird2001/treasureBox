@@ -4,10 +4,11 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const path = require("path");
 const passport = require("passport");
+
 require("./services/passport");
 
 // Serve static content for the app
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use(express.static(path.join(__dirname, "..", "client", "build"), {index: false}));
 // Enable CORS when in dev and disable when in production.
 if(!(process.env.NODE_ENV === "production")) {
   app.use((req,res,next) => {
