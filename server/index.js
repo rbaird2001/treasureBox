@@ -3,10 +3,10 @@ const express = require("express");
 const PORT = process.env.PORT || 3000;
 const app = express();
 const path = require("path");
+const session = require("express-session")
 const passport = require("passport");
-
 require("./services/passport");
-
+app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: true}))
 // Serve static content for the app
 app.use(express.static(path.join(__dirname, "..", "client", "build"), {index: false}));
 // Enable CORS when in dev and disable when in production.
@@ -22,6 +22,7 @@ if(!(process.env.NODE_ENV === "production")) {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(passport.initialize());
+app.use(passport.session())
 
 //establish url paths for used by Express Server
 require("./controllers/apiRoute")(app)
