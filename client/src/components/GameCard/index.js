@@ -18,9 +18,9 @@ export default ({ id, img, summary, canAdd }) => {
       data-target="#exampleModal1"
     >
       <div className="card-body">
-        <img src={img} />
+        <img src={img} className="img-fluid.max-width: 95%" />
 
-        <p className="card-text fontOswald">{summary}</p>
+        <p className="card-text fontOswald">{summary.substring(0,255)}</p>
         <div className="d-flex justify-content-between align-items-center">
           <div className="btn-group">
             {canAdd ? (<button

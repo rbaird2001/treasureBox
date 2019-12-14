@@ -14,8 +14,10 @@ export default () => {
 
   return (
     <Fragment>
+      <div className="bg-primary"> 
         <SearchBar />
         {gameShelf}
+      </div>
     </Fragment>
   );
 };

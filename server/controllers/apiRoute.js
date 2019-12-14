@@ -3,6 +3,7 @@
 const igdb = require("../services/igdb");
 const db = require("../models/mediaItem");
 const path = require("path");
+const passport = require("passport")
 const { formatGames } = require("../helpers");
 module.exports = function(app) {
   
@@ -56,6 +57,24 @@ module.exports = function(app) {
       path.join(__dirname, "..", "..", "client", "build", "index.html")
     );
   });
+  
+/* GET Google Authentication API. */
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+//google post authentication callback
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/", session: false }),
+  function(req, res) {
+      var token = req.user.token;
+      res.redirect("http://localhost:3000?token=" + token);
+  }
+);
+
 };
+
 
 

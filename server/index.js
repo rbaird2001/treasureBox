@@ -3,6 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3000;
 const app = express();
 const path = require("path");
+const passport = require("passport");
+require("./services/passport");
 
 // Serve static content for the app
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
@@ -18,6 +20,7 @@ if(!(process.env.NODE_ENV === "production")) {
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(passport.initialize());
 
 //establish url paths for used by Express Server
 require("./controllers/apiRoute")(app)
