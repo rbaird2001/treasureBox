@@ -6,7 +6,11 @@ export default () => {
   const [searchVal, setVal] = useState("");
   const handleChange = evt => setVal(evt.target.value);
   const handlesearchBtnClick = () => history.push(`/search/${searchVal}`);
-
+  const handleEnterKey = evt => {
+    if(evt.keyCode === 13) {
+      handlesearchBtnClick();
+    }
+  }
   return (
     <div className="row">
       <div className="col-12">
@@ -18,6 +22,7 @@ export default () => {
             aria-label="Search Game Title"
             aria-describedby="button-search"
             onChange={handleChange}
+            onKeyDown={handleEnterKey}
             value={searchVal}
           />
           <div className="input-group-append">
