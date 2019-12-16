@@ -1,0 +1,23 @@
+.fontPressStart {
+    font-family: 'Press Start 2P', cursive;
+}
+.fontOswald {
+    font-family: 'Oswald', sans-serif;
+    font-size:1.2em;
+}
+.bg-dark-red {
+    background: rgb(255, 0, 0);
+    background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(6, 0, 0, 1) 70%);
+}
+.btn-style-red {
+    color: rgb(150, 150, 150);
+    border: 2px gray solid;
+    border-radius: 10px;
+    background-color: darkred;
+}
+.btn-style-red:hover {
+    /* color: rgb(240, 184, 0); */
+    color: rgb(255, 255, 255);
+    background-color: red;
+    border-color: white;
+}

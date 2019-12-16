@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./style.css";
 export default () => {
   const history = useHistory();
   const [searchVal, setVal] = useState("");
   const handleChange = evt => setVal(evt.target.value);
   const handlesearchBtnClick = () => history.push(`/search/${searchVal}`);
+
   return (
-    <div className="row mt-4">
-      <div className="col-12 width-75">
+    <div className="row">
+      <div className="col-12">
         <div className="input-group mb-3">
           <input
             type="text"

@@ -6,7 +6,7 @@ const path = require("path");
 const session = require("express-session")
 const passport = require("passport");
 require("./services/passport");
-app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: true}))
+app.use(session({secret: process.env.SESS_SECRET, resave: false, saveUninitialized: true}))
 // Serve static content for the app
 app.use(express.static(path.join(__dirname, "..", "client", "build"), {index: false}));
 // Enable CORS when in dev and disable when in production.
