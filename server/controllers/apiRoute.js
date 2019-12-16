@@ -3,6 +3,7 @@
 const igdb = require("../services/igdb");
 const db = require("../models/mediaItem");
 const path = require("path");
+const passport = require("passport")
 const { formatGames } = require("../helpers");
 module.exports = function(app) {
   
@@ -50,12 +51,37 @@ module.exports = function(app) {
     res.json(games);
   });
 
+  /* GET Google Authentication API. */
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
+}));
+
+//google post authentication callback
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/auth/google", session: true }),
+  function(req, res) {
+      var token = req.user.token;
+      res.redirect("http://localhost:3000?token=" + token);
+  }
+);
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "..", "client", "build", "login.html"))
+})
+
+
   //default routing to send back to React for processing.
   app.get("/*", function(req, res) {
-    res.sendFile(
-      path.join(__dirname, "..", "..", "client", "build", "index.html")
-    );
+    console.log(req.user)
+    if(!req.user) {
+      res.redirect('/login')
+    } else {
+      res.sendFile(
+        path.join(__dirname, "..", "..", "client", "build", "index.html")
+      );
+    }
   });
-};
 
+}
 
