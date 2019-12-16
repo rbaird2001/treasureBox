@@ -1,6 +1,7 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const cbUrl = process.env.NODE_LOC === "local"?"http://localHost:3000":"https://game-media-shelf.herokuapp.com"
+const cbUrl = process.env.NODE_ENV === "production"?"https://game-media-shelf.herokuapp.com":"http://localhost:3000"
+console.log(cbUrl);
 passport.serializeUser(function(user, done) {
  done(null, user);
 });

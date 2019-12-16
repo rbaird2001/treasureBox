@@ -10,7 +10,7 @@ app.use(session({secret: process.env.SESS_SECRET, resave: false, saveUninitializ
 // Serve static content for the app
 app.use(express.static(path.join(__dirname, "..", "client", "build"), {index: false}));
 // Enable CORS when in dev and disable when in production.
-if(!(process.env.NODE_ENV === "production")) {
+if(!((process.env.NODE_ENV === "production") || (process.env.NODE_ENV === "test"))) {
   app.use((req,res,next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
