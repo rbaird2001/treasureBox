@@ -15,3 +15,14 @@ code {
   background: rgb(255, 0, 0);
   background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(6, 0, 0, 1) 70%);
 }
+
+.gameCol{
+  max-width: 33%;
+}
+
+.read-more-button{
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
