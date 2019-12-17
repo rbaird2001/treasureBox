@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 import ReadMoreReact from "read-more-react";
-import "./gameCard.css"
 export default ({ id, img, summary, canAdd }) => {
   const history = useHistory();
   const addSelection = gameId => () => {
