@@ -11,6 +11,9 @@ export default () => {
       handlesearchBtnClick();
     }
   }
+  const goToUPC = () => {
+    history.push("/upc");
+  }
   return (
     <div className="row">
       <div className="col-12">
@@ -34,6 +37,12 @@ export default () => {
             >
               Search
             </button>
+            <button
+              className="btn btn-outline-info"
+              type="button"
+              onClick={goToUPC}>
+                Use UPC Scanner
+              </button>
           </div>
         </div>
       </div>
