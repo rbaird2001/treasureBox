@@ -5,6 +5,7 @@ const db = require("../models/mediaItem");
 const path = require("path");
 const passport = require("passport")
 const { formatGames } = require("../helpers");
+const upc = require("../services/upcsearch")
 module.exports = function(app) {
   
   //broad search for games with similar titles.
@@ -69,6 +70,20 @@ app.get(
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "..", "client", "build", "login.html"))
 })
+
+app.get("/upc/search/:upc", async(req,res) => {
+  try{
+    const upcRes =  await upc.get(`lookup?upc=${req.params.upc}`)
+    //console.log(upcRes.data);
+    let i = upcRes.data.items[0].title
+    let itemName = i.substring(0,i.indexOf("-")).trim();
+
+  }
+  catch(err){
+    console.log(err)
+  }
+
+});
 
 
   //default routing to send back to React for processing.
